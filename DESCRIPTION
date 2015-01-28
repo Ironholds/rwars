@@ -1,0 +1,9 @@
+Package: rwars
+Type: Package
+Title: R client library for the Star Wars API
+Version: 0.0.1
+Date: 2015-01-26
+Author: Oliver Keyes
+Maintainer: Oliver Keyes <ironholds@gmail.com>
+Description:
+License: MIT + file LICENSE
