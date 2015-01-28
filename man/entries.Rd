@@ -3,6 +3,7 @@
 \name{get_planet}
 \alias{entries}
 \alias{get_film}
+\alias{get_person}
 \alias{get_planet}
 \alias{get_species}
 \alias{get_starship}
@@ -19,6 +20,8 @@ get_film(id, parse_result = FALSE, ...)
 get_vehicle(id, parse_result = FALSE, ...)
 
 get_starship(id, parse_result = FALSE, ...)
+
+get_person(id, parse_result = FALSE, ...)
 }
 \description{
 Retrieve the data associated with a specific object

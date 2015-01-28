@@ -50,3 +50,13 @@ get_starship <- function(id, parse_result = FALSE, ...){
   }
   return(result)
 }
+
+#'@rdname entries
+#'@export
+get_person <- function(id, parse_result = FALSE, ...){
+  result <- query(paste0("/people/",id), ...)
+  if(parse_result){
+    result <-person_entry_parse(result)
+  }
+  return(result)
+}

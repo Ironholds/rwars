@@ -2,6 +2,7 @@
 
 export(get_film)
 export(get_film_schema)
+export(get_person)
 export(get_person_schema)
 export(get_planet)
 export(get_planet_schema)

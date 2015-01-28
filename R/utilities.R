@@ -48,3 +48,23 @@ vehicle_entry_parse <- function(result){
   }
   return(result)
 }
+
+person_entry_parse <- function(result){
+  result$films <- unlist(result$films)
+  if(length(result$species) > 0){
+    result$species <- unlist(result$species)
+  } else {
+    result$species <- NA
+  }
+  if(length(result$vehicles) > 0){
+    result$vehicles <- unlist(result$vehicles)
+  } else {
+    result$vehicles <- NA
+  }
+  if(length(result$starships) > 0){
+    result$starships <- unlist(result$starships)
+  } else {
+    result$starships <- NA
+  }
+  return(results)
+}
