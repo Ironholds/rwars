@@ -11,6 +11,7 @@ query <- function(url_params, ...){
   return(content(result))
 }
 
+
 #Parse the *_schema results
 schema_parse <- function(result){
   result$required <- unlist(result$required)
@@ -18,53 +19,46 @@ schema_parse <- function(result){
   return(result)
 }
 
-planet_entry_parse <- function(result){
-  result$residents <- unlist(result$residents)
-  result$films <- unlist(result$films)
-  return(result)
-}
-species_entry_parse <- function(result){
-  result$people <- unlist(result$people)
-  result$films <- unlist(result$films)
+#Safe parser base for entries
+parser_base <- function(result, field){
+  if(length(result[field]) > 0){
+    result[field] <-  unname(unlist(result[field]))
+  } else {
+    result[field] <- NA
+  }
   return(result)
 }
 
-#Film entries have their own syntax
+planet_entry_parse <- function(result){
+  result <- parser_base(result, "residents")
+  result <- parser_base(result, "films")
+  return(result)
+}
+species_entry_parse <- function(result){
+  result <- parser_base(result, "people")
+  result <- parser_base(result, "films")
+  return(result)
+}
+
 film_entry_parse <- function(result){
-  result$characters <- unlist(result$characters)
-  result$planets <- unlist(result$planets)
-  result$starships <- unlist(result$starships)
-  result$vehicles <- unlist(result$vehicles)
-  result$species <- unlist(result$species)
+  result <- parser_base(result, "characters")
+  result <- parser_base(result, "planets")
+  result <- parser_base(result, "starships")
+  result <- parser_base(result, "vehicles")
+  result <- parser_base(result, "species")
   return(result)
 }
 
 vehicle_entry_parse <- function(result){
-  result$films <- unlist(result$films)
-  if(length(result$pilots) > 0){
-    result$pilots <- unlist(result$pilots)
-  } else {
-    result$pilots <- NA
-  }
+  result <- parser_base(result, "films")
+  result <- parser_base(result, "pilots")
   return(result)
 }
 
 person_entry_parse <- function(result){
-  result$films <- unlist(result$films)
-  if(length(result$species) > 0){
-    result$species <- unlist(result$species)
-  } else {
-    result$species <- NA
-  }
-  if(length(result$vehicles) > 0){
-    result$vehicles <- unlist(result$vehicles)
-  } else {
-    result$vehicles <- NA
-  }
-  if(length(result$starships) > 0){
-    result$starships <- unlist(result$starships)
-  } else {
-    result$starships <- NA
-  }
-  return(results)
+  result <- parser_base(result, "films")
+  result <- parser_base(result, "species")
+  result <- parser_base(result, "vehicles")
+  result <- parser_base(result, "starships")
+  return(result)
 }

@@ -1,4 +1,4 @@
-#'@title Retrieve the data associated with a specific object
+#'@title Retrieve the data associated with a specific entry
 #'(planet, species, etc)
 #'@rdname entries
 #'@aliases entries
