@@ -2,12 +2,45 @@
 % Please edit documentation in R/all.R
 \name{get_all_planets}
 \alias{all_entries}
+\alias{get_all_films}
+\alias{get_all_people}
 \alias{get_all_planets}
+\alias{get_all_species}
+\alias{get_all_starships}
+\alias{get_all_vehicles}
 \title{Retrieve the data associated with every entry in a class.}
 \usage{
-get_all_planets(parse_result = FALSE, ...)
+get_all_planets(query_continue = NULL, parse_result = FALSE, ...)
+
+get_all_species(query_continue = NULL, parse_result = FALSE, ...)
+
+get_all_films(query_continue = NULL, parse_result = FALSE, ...)
+
+get_all_vehicles(query_continue = NULL, parse_result = FALSE, ...)
+
+get_all_starships(query_continue = NULL, parse_result = FALSE, ...)
+
+get_all_people(query_continue = NULL, parse_result = FALSE, ...)
+}
+\arguments{
+\item{query_continue}{whether this is a continuation of a previous query. Set to
+NULL by default; the alternative is to provide this argument with the "next" URL
+from a returned object - see the examples.}
+
+\item{parse_result}{whether to parse and simplify the result of the query.
+Set to FALSE by default.}
+
+\item{...}{further arguments to pass to httr's GET function.}
 }
 \description{
 Retrieve the data associated with every entry in a class.
+}
+\examples{
+#Retrieve all planets, parsing
+planets <- get_all_planets(parse_result = TRUE)
+
+#It's only returned some of the results! Use query_continue to get
+#the rest.
+second_set_of_planets <- get_all_planets(getElement(planets,"next"), parse_result = TRUE)
 }
 
