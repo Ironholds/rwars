@@ -11,7 +11,6 @@ query <- function(url_params, ...){
   return(content(result))
 }
 
-
 #Parse the *_schema results
 schema_parse <- function(result){
   result$required <- unlist(result$required)
@@ -22,7 +21,7 @@ schema_parse <- function(result){
 #Safe parser base for entries
 parser_base <- function(result, field){
   if(length(result[field]) > 0){
-    result[field] <-  unname(unlist(result[field]))
+    result[[which(names(result) == field)]] <-  unname(unlist(result[field]))
   } else {
     result[field] <- NA
   }
