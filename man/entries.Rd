@@ -41,4 +41,7 @@ Retrieve the data associated with a specific entry
 #Retrieve an object by ID
 looking_for_data_in_alderaan_places <- get_planet(2)
 }
+\seealso{
+retrieving entire classes with \code{\link{all_entries}}.
+}
 

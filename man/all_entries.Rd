@@ -43,4 +43,7 @@ planets <- get_all_planets(parse_result = TRUE)
 #the rest.
 second_set_of_planets <- get_all_planets(getElement(planets,"next"), parse_result = TRUE)
 }
+\seealso{
+retrieving individual entries with \code{\link{entries}}
+}
 

@@ -16,6 +16,7 @@
 #'#Retrieve an object by ID
 #'looking_for_data_in_alderaan_places <- get_planet(2)
 #'
+#'@seealso retrieving entire classes with \code{\link{all_entries}}.
 #'@export
 get_planet <- function(id, parse_result = FALSE, ...){
   result <- query(paste0("/planets/",id), ...)

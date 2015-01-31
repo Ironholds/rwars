@@ -19,6 +19,7 @@
 #'#the rest.
 #'second_set_of_planets <- get_all_planets(getElement(planets,"next"), parse_result = TRUE)
 #'
+#'@seealso retrieving individual entries with \code{\link{entries}}
 #'@export
 get_all_planets <- function(query_continue = NULL, parse_result = FALSE, ...){
   if(is.null(query_continue)){

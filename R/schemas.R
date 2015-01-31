@@ -15,7 +15,7 @@
 #'get_planet_schema()
 #'
 #'@seealso \code{\link{entries}} for retrieving data about
-#'individual planets, schemas, etc, or \code{\link{all entries}}
+#'individual planets, schemas, etc, or \code{\link{all_entries}}
 #'for retrieving all of the data in a particular category.
 #'@return a list-based representation of the relevant JSON schema.
 #'@export
