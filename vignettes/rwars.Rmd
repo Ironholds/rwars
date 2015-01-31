@@ -1,0 +1,58 @@
+<!--
+%\VignetteEngine{knitr::knitr}
+%\VignetteIndexEntry{rwars}
+-->
+
+#Star Wars API client library
+> "I felt a great disturbance in the Force, as if millions of JSON blobs suddenly cried out in terror, and were suddenly silenced. I fear something terrible has happened."
+
+This is an R client library for the [http://swapi.co/](SWAPI service), a database of Star Wars metadata with an associated API. It can be used to retrieve data about everything from the films to individual vehicles, characters or planets.
+
+It mostly exists because I don't like useRs trying to find information and ending up with Alderaan data.
+
+## Understanding the API structure
+To assist you in structuring analytical code without having to retrieve every permutation of data,
+the API includes code for retrieving the actual schema for each type of entity. These can be accessed
+using *\_schema functions, described at <code>?schemas</code>. As an example:
+
+```{r, eval=FALSE}
+#Grab the schema for planets
+planet_schema <- get_planet_schema()
+names(planet_schema)
+#[1] "required"    "$schema"     "properties"  "type"        "description" "title" 
+```
+
+These schemas note which fields will always have an entry ("required"), and which are optional, along with
+a description of each individual field ("properties").
+
+## Retrieving individual entities
+You can request the metadata associated with individual planets, species, vehicles, starships, characters or films. These are indexed numerically, and can be accessed using one of the host of functions documented at <code>?entries</code>. As an example:
+
+```{r, eval=FALSE}
+#Get an individual starship - an X-wing. Hopefully it won't Taim out and will actually bring the data Bak.
+x_wing <- get_starship(12)
+```
+
+## Retrieving entire classes of entities
+What if we don't know the ID number of the X-wing, or want all of the starships? We can do that!
+
+```{r, eval=FALSE}
+starships <- get_all_starships()
+```
+
+These functions are documented at <code>?all\_entries</code>, and apply to each class of entity: the only problem is that it won't actually ''return'' all entities, because for some classes, that's a lot of data. Instead, it provides 60 (or all of them if that's fewer than 60), and a link to the next page of results. The all\_entries functions accept this link as an argument:
+
+```{r, eval=FALSE}
+second_starship_set <- get_all_starships(getElement(starships,"next"))
+```
+
+## Parsing returned objects
+Each function - whether it's for grabbing schemas, entities or classes of entity - has an equivalent
+"parse" method which simplifies the resulting data structure. These can be accessed with the parse_result
+argument:
+
+```{r, eval=FALSE}
+planet_schema <- get_planet_schema(parse_result = TRUE)
+x_wing <- get_starship(12, parse_result = TRUE)
+starships <- get_all_starships(parse_result = TRUE)
+```
