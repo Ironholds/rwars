@@ -5,5 +5,9 @@ Version: 0.0.1
 Date: 2015-01-26
 Author: Oliver Keyes
 Maintainer: Oliver Keyes <ironholds@gmail.com>
-Description:
+Description: 
 License: MIT + file LICENSE
+Imports: httr
+Suggests: testthat,
+    knitr
+VignetteBuilder: knitr
