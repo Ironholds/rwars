@@ -6,7 +6,7 @@
 #Star Wars API client library
 > "I felt a great disturbance in the Force, as if millions of JSON blobs suddenly cried out in terror, and were suddenly silenced. I fear something terrible has happened."
 
-This is an R client library for the [http://swapi.co/](SWAPI service), a database of Star Wars metadata with an associated API. It can be used to retrieve data about everything from the films to individual vehicles, characters or planets.
+This is an R client library for the [SWAPI service](http://swapi.co/), a database of Star Wars metadata with an associated API. It can be used to retrieve data about everything from the films to individual vehicles, characters or planets.
 
 It mostly exists because I don't like useRs trying to find information and ending up with Alderaan data.
 
@@ -29,7 +29,8 @@ a description of each individual field ("properties").
 You can request the metadata associated with individual planets, species, vehicles, starships, characters or films. These are indexed numerically, and can be accessed using one of the host of functions documented at <code>?entries</code>. As an example:
 
 ```{r, eval=FALSE}
-#Get an individual starship - an X-wing. Hopefully it won't Taim out and will actually bring the data Bak.
+#Get an individual starship - an X-wing.
+#Hopefully it won't Taim out and will actually bring the data Bak.
 x_wing <- get_starship(12)
 ```
 
