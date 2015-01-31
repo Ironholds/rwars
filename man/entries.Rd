@@ -23,8 +23,22 @@ get_starship(id, parse_result = FALSE, ...)
 
 get_person(id, parse_result = FALSE, ...)
 }
+\arguments{
+\item{id}{the numeric ID of the (planet, species, etc)
+you want to retrieve. Note that IDs are not necessarily sequential;
+IDs 3, 4 and 6 may exist, while ID 5 may error.}
+
+\item{parse_result}{whether to parse and simplify the data before
+returning it. Set to FALSE by default.}
+
+\item{...}{further arguments to pass to httr's GET function.}
+}
 \description{
 Retrieve the data associated with a specific entry
 (planet, species, etc)
+}
+\examples{
+#Retrieve an object by ID
+looking_for_data_in_alderaan_places <- get_planet(2)
 }
 

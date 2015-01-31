@@ -2,6 +2,20 @@
 #'(planet, species, etc)
 #'@rdname entries
 #'@aliases entries
+#'
+#'@param id the numeric ID of the (planet, species, etc)
+#'you want to retrieve. Note that IDs are not necessarily sequential;
+#'IDs 3, 4 and 6 may exist, while ID 5 may error.
+#'
+#'@param parse_result whether to parse and simplify the data before
+#'returning it. Set to FALSE by default.
+#'
+#'@param ... further arguments to pass to httr's GET function.
+#'
+#'@examples
+#'#Retrieve an object by ID
+#'looking_for_data_in_alderaan_places <- get_planet(2)
+#'
 #'@export
 get_planet <- function(id, parse_result = FALSE, ...){
   result <- query(paste0("/planets/",id), ...)
