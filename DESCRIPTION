@@ -11,6 +11,7 @@ Imports:
     httr
 Suggests:
     testthat,
-    knitr
+    knitr,
+    rmarkdown
 VignetteBuilder: knitr
 RoxygenNote: 5.0.1
