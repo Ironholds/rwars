@@ -1,6 +1,10 @@
-#'@title Retrieve the data associated with every entry in a class.
+#'@title Retrieve Data about Every DB Entry in a Class
 #'@rdname all_entries
 #'@aliases all_entries
+#'
+#'@description these functions retrieve the data associated with \emph{every} entry
+#'in a particular class of object, where that class may be planet, species,
+#'vehicle, so on and so forth.
 #'
 #'@param query_continue whether this is a continuation of a previous query. Set to
 #'NULL by default; the alternative is to provide this argument with the "next" URL

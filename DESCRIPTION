@@ -1,13 +1,16 @@
 Package: rwars
 Type: Package
-Title: R client library for the Star Wars API
-Description: a connector to the SWAPI Star Wars API service, run by Paul Hallett
-Version: 0.5
-Date: 2015-01-31
+Title: R client for the Star Wars API
+Description: Provides functions to retrieve and reformat data from the 'Star Wars' API (SWAPI) <https://swapi.co/>.
+Version: 1.0.0
+Date: 2017-01-13
 Author: Oliver Keyes
 Maintainer: Oliver Keyes <ironholds@gmail.com>
 License: MIT + file LICENSE
-Imports: httr
-Suggests: testthat,
+Imports:
+    httr
+Suggests:
+    testthat,
     knitr
 VignetteBuilder: knitr
+RoxygenNote: 5.0.1

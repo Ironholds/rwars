@@ -1,7 +1,9 @@
-#'@title Retrieve the data associated with a specific entry
-#'(planet, species, etc)
+#'@title Retrieve Data about a Specific DB Entry
 #'@rdname entries
 #'@aliases entries
+#'
+#'@description These functions return a specific DB entry's information - where
+#'that entry can be a planet, species, vehicle, so on and so forth.
 #'
 #'@param id the numeric ID of the (planet, species, etc)
 #'you want to retrieve. Note that IDs are not necessarily sequential;
@@ -16,7 +18,7 @@
 #'#Retrieve an object by ID
 #'looking_for_data_in_alderaan_places <- get_planet(2)
 #'
-#'@seealso retrieving entire classes with \code{\link{all_entries}}.
+#'@seealso retrieving entire classes of entries with \code{\link{all_entries}}.
 #'@export
 get_planet <- function(id, parse_result = FALSE, ...){
   result <- query(paste0("/planets/",id), ...)
